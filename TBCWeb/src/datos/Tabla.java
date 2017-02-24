@@ -2,6 +2,7 @@ package datos;
 import java.awt.BorderLayout;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.io.Serializable;
 import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.ResultSet;
@@ -24,7 +25,7 @@ import entidades.Personaje;
 import logica.Controlador;
 import uiDesktop.Turno;
 
-public class Tabla extends JFrame
+public class Tabla extends JFrame implements Serializable
 {
 	private static final long serialVersionUID = 210601883990408438L;
     private Connection conexion = null;

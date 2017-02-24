@@ -12,17 +12,17 @@
     <title>TurnedBasedCombat </title>
 
     <!-- Bootstrap core CSS -->
-    <link href="../../dist/css/bootstrap.min.css" rel="stylesheet">
+    <link href="Style/bootstrap.min.css" rel="stylesheet">
 
     <!-- IE10 viewport hack for Surface/desktop Windows 8 bug -->
-    <link href="../../assets/css/ie10-viewport-bug-workaround.css" rel="stylesheet">
+    <link href="Style/ie10-viewport-bug-workaround.css" rel="stylesheet">
 
     <!-- Custom styles for this template -->
     <link href="Style/cover.css" rel="stylesheet">
 
     <!-- Just for debugging purposes. Don't actually copy these 2 lines! -->
     <!--[if lt IE 9]><script src="../../assets/js/ie8-responsive-file-warning.js"></script><![endif]-->
-    <script src="../../assets/js/ie-emulation-modes-warning.js"></script>
+    <script src="Style/ie-emulation-modes-warning.js"></script>
 
     <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
     <!--[if lt IE 9]>
@@ -32,19 +32,18 @@
   </head>
 
   <body>
-	 <form class="form-cover" name="cover" action="Servlett" method="post">
+	 <form class="form-cover" name="cover" action="Servlett" method="POST">
     <div class="site-wrapper">
 
       <div class="site-wrapper-inner">
 
-        <div class="cover-container">
+<div class="cover-container">
 
           <div class="masthead clearfix">
             <div class="inner">
               
               <nav>
                 <ul class="nav masthead-nav">
-                 
                 </ul>
               </nav>
             </div>
@@ -52,20 +51,20 @@
 </div>
           <div class="inner cover">
             <img alt="" src="C:\Users\pc\Desktop\TpCombateHTML/cooltext.png">
-            <p class="lead">Bienvenidos al juego propuesto por la catedra de Java de la UTN frro</p>
+             <p class="lead">Bienvenidos al juego propuesto por la catedra de Java de la UTN frro</p>
+            <label  for="inputJugador1" class="sr-only">Jugador1</label>
+            <input type="text" id="Jugador1" name="Jugador1" class="form-control" placeholder="Jugador1" required autofocus>
+            <p> </p>
+            <label for="inputJugador2" class="sr-only">Jugador2</label>
+            <input type="text" id="Jugador2" name="Jugador2" class="form-control" placeholder="Jugador2" required autofocus>
             <p class="lead">
-              <a href="Elegir.jsp" class="btn btn-lg btn-default">Elegir Jugadores</a>
-               <a href="Crear.html" class="btn btn-lg btn-warning">Crear Jugadores</a>
-                <a href="#" class="btn btn-lg btn-primary">Salir</a>
-                
-            </p>
+              <p> </p>
+                <p> </p>
+ 			<button href= "Jugar.jsp" class="btn btn-lg btn-primary btn-block" type="submit">Jugar</button>  
+         
+         
           </div>
 
-          <div class="mastfoot">
-            <div class="inner">
-              <p>Cover template for <a href="http://getbootstrap.com">Bootstrap</a>, by <a href="https://twitter.com/mdo">@mdo</a>.</p>
-            </div>
-          </div>
 
         </div>
 
@@ -74,4 +73,3 @@
       
       </form>
       </body>
-      >

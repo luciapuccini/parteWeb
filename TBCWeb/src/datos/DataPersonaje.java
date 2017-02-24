@@ -1,6 +1,7 @@
 package datos;
 
 
+import java.io.Serializable;
 import java.sql.*;
 
 
@@ -8,7 +9,8 @@ import java.sql.*;
 import entidades.*;
 import utils.ApplicationException;
 
-public class DataPersonaje {
+public class DataPersonaje implements Serializable 
+{
 	
 	public ResultSet getQuery(String _query)
 	{
@@ -200,7 +202,7 @@ public class DataPersonaje {
 				stmt.setString(1, per);
 				
 				rs= stmt.executeQuery();
-				if(rs!=null && rs.next())// no me cierra
+				if(rs!=null && rs.next())
 				{
 					p=new Personaje();
 					p.setVida(rs.getInt("vida"));

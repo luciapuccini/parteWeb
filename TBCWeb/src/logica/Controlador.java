@@ -1,11 +1,13 @@
 package logica;
 
+import java.io.Serializable;
+
 import datos.DataPersonaje;
 import datos.Tabla;
 import entidades.Personaje;
 import utils.ApplicationException;
 
-public class Controlador 
+public class Controlador implements Serializable
 {
 
 	Personaje p1;
@@ -109,13 +111,7 @@ public class Controlador
 	
 	public Personaje getPersonaje(Personaje p)//no uso
 	{
-		/*
-		 * Personaje perEnc=null;
-		/*int i=Personajes.indexOf(p);
-		if(i>=0){
-			perEnc=Personajes.get(i);
-		}
-		return perEnc;*/
+		
 		return dataPer.getByNombre(p.getNombre());
 	}
 

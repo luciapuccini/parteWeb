@@ -7,15 +7,13 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
-
-import datos.Tabla;
 import entidades.Personaje;
 import logica.Controlador;
 
 /**
  * Servlet implementation class Servlett
  */
-@WebServlet("/start.jr")
+@WebServlet("/Servlett")
 public class Servlett extends HttpServlet {
 	private static final long serialVersionUID = 1L;
        
@@ -41,27 +39,34 @@ public class Servlett extends HttpServlet {
 	 */
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException
 	{
-		// TODO Auto-generated method stub
-		System.out.println("LLEGA AL SERVLET");
-		
-			
-
-			Controlador ctrl = new Controlador();
-		Personaje p1= new Personaje();
-		p1.setNombre(request.getParameter("Personaje1"));
-		Personaje p2= new Personaje();
-		p2.setNombre(request.getParameter("Personaje2"));
-		p1=ctrl.getPersonaje(p1);
-		p2=ctrl.getPersonaje(p2);
-		
-		request.getSession().setAttribute("P1", p1);
-		request.getSession().setAttribute("P2", p2);
-		HttpSession session =request.getSession(true);
-		session.setAttribute("jugador1", p1); 
-		session.setAttribute("jugador2", p1); 
-		request.getRequestDispatcher("Crear.jsp").forward(request, response);
 		
 	
+		
+		Controlador ctrl = new Controlador();
+		Personaje p1= new Personaje();
+		Personaje p2= new Personaje();
+		
+		p1.setNombre(request.getParameter("Jugador1"));
+		
+		p2.setNombre(request.getParameter("Jugador2"));
+		
+		p1=ctrl.getPersonaje(p1);
+		p2=ctrl.getPersonaje(p2);
+		p1.setVidaPartida(p1.getVidaOriginal());
+		p1.setEnergiaPartida(p1.getEnergiaOriginal());
+		p2.setVidaPartida(p2.getVidaOriginal());
+		p2.setEnergiaPartida(p2.getEnergiaOriginal());
+		
+		//if (p1== null){System.out.println("nop, esta null");}
+		//else{
+		
+	
+		HttpSession session =request.getSession(true);
+		session.setAttribute("Jugador1", p1); 
+		session.setAttribute("Jugador2", p2); 
+		request.getRequestDispatcher("Jugar.jsp").forward(request, response);
+		
+		
 		
 		
 		

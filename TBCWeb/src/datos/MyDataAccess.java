@@ -1,11 +1,13 @@
 package datos;
 
+import java.io.Serializable;
 import java.sql.*;
 
 import logica.Controlador;
 import utils.*;
 
-public class MyDataAccess {
+@SuppressWarnings("serial")
+public class MyDataAccess implements Serializable{
 
 	private String dbDriver="com.mysql.jdbc.Driver";
 	private String host="localhost";

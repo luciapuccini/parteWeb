@@ -1,14 +1,14 @@
 package entidades;
 
+import java.io.Serializable;
 import java.util.Random;
-
-import javax.swing.JOptionPane;
 
 import datos.DataPersonaje;
 import logica.Controlador;
 import utils.ApplicationException;
 
-public class Personaje 
+@SuppressWarnings("serial")
+public class Personaje implements Serializable
 	{
 //-----------Attributes--------------//
 	 int energia;
@@ -19,6 +19,21 @@ public class Personaje
 	 String nombre;
 	 int energiaOriginal;
 	 int vidaOriginal;
+	 int vidaPartida;
+	 public int getVidaPartida() {
+		return vidaPartida;
+	}
+	public void setVidaPartida(int vidaPartida) {
+		this.vidaPartida = vidaPartida;
+	}
+	public int getEnergiaPartida() {
+		return energiaPartida;
+	}
+	public void setEnergiaPartida(int energiaPartida) {
+		this.energiaPartida = energiaPartida;
+	}
+
+	int energiaPartida;
 	 Controlador ctrl;
 //----------getters y setters----------------------//
 	 public  Controlador getCtrl() {
@@ -87,19 +102,19 @@ public class Personaje
 	
 		if ((numAleatorio.nextInt()*100) < this.getEvasion())
 		{
-			JOptionPane.showMessageDialog(null, "ATAQUE OK");
+			System.out.println( "ATAQUE Ok, vida:"+this.getVida());
 			this.setVida(this.getVida()-valorAtaque);
 		
 			
 			if(this.getVida() <= 0)
 			{ 
-				JOptionPane.showMessageDialog(null, this.getNombre()+"  PERDIO");
+				System.out.println( this.getNombre() +"perdio");
 				
 			}
 		}
 		else
 		{
-			JOptionPane.showMessageDialog(null, "SE EVADIO EL ATAQUE");
+			System.out.println( "evadio el ataque");
 		}
 	};
 	public int atacar(int valorAtaque,Personaje pAtacado,Controlador c)
@@ -113,11 +128,11 @@ public class Personaje
 		{
 			setCtrl(c);
 			this.Actualizacion(c);
-			
+			return 1;
 		}
-		return 1;
+	//	return 1; --> este el original
 	}else
-	{JOptionPane.showMessageDialog(null, "No tiene suficiente energía");}
+	{System.out.println( "no tiene suficiente energia");}
 		return 0;
 	};
 	
@@ -136,7 +151,7 @@ public class Personaje
 		return 1;
 		}else
 		{
-			JOptionPane.showMessageDialog(null, "No tiene suficiente energia");
+			{System.out.println( "no tiene suficiente energia");}
 			return 0;
 		}
 	};

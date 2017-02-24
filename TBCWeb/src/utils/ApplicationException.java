@@ -1,8 +1,10 @@
 package utils;
 
+import java.io.Serializable;
+
 import org.apache.log4j.Level;
 
-public class ApplicationException extends Exception {
+public class ApplicationException extends Exception implements Serializable{
 
 	/**
 	 * 
